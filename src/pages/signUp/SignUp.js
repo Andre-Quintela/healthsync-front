@@ -1,23 +1,49 @@
+import './SignUp.css';
+import FlaskAlt from '../../assets/Flask_alt.svg';
+
 const SignUp = () => {
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <form>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" />
+        <div className='container'>
+            <div className='info-section'> 
+                <div className='info'>
+                    <img src={FlaskAlt} alt='Flask Icon'/>
+                    <div>
+                        <h3>Agende consulstas de forma fácil</h3>        
+                        <p>Agende consultas de forma rápido e fácil</p>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" />
+
+                <div className='info'>
+                    <img src={FlaskAlt} alt='Flask Icon'/>
+                    <div>
+                        <h3>Agende consulstas de forma fácil</h3>
+                        <p>Agende consultas de forma rápido e fácil</p>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" />
+
+                <div className='info'>
+                    <img src={FlaskAlt} alt='Flask Icon'/>
+                    <div>
+                        <h3>Agende consulstas de forma fácil</h3>
+                        <p>Agende consultas de forma rápido e fácil</p>
+                    </div>
                 </div>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
+            </div>
+
+            <div className='form-section'>
+                <form>
+                    <h2>Registre-se no<br></br><span>HealthSync</span></h2>
+                    <div>
+                        <input type='text' placeholder='Primeiro nome' />
+                        <input type='text' placeholder='Último nome' />
+                    </div>
+                    <input type='email' placeholder='Email' />
+                    <input type='password' placeholder='Senha' />
+                    <input type='password' placeholder='Confirme sua senha' />
+                    <button>Registre-se</button>
+                </form>
+            </div>
+        </div>   
     );
 };
 
