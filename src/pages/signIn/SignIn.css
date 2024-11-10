@@ -1,0 +1,11 @@
+.form-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-section p{
+    margin-left: auto;
+    margin-right: auto;
+}

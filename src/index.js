@@ -5,6 +5,7 @@ import './index.css';
 import SignUp from './pages/signUp/SignUp';
 import TestPage from './pages/TestPage/Test';
 import reportWebVitals from './reportWebVitals';
+import SignIn from './pages/signIn/SignIn';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +14,7 @@ root.render(
     <Router>
       <Routes>
           <Route path="/" element={<SignUp/>} />
-          <Route path="/Test" element={<TestPage />} />
+          <Route path="/Test" element={<SignIn />} />
       </Routes>
   </Router>
   </React.StrictMode>
