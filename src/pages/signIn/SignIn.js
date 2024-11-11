@@ -2,8 +2,12 @@ import './SignIn.css';
 import FlaskAlt from '../../assets/Flask_alt.svg';
 import DeskAlt from '../../assets/Desk_alt_light.svg';
 import ChartAlt from '../../assets/Chart_alt.svg';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
 
 const SignIn = () => {
+  const { isLogged, login, logout } = useAuth();
+  const navigate = useNavigate();
   return (
     <div className="container">
       <div className="info-section">
@@ -31,14 +35,20 @@ const SignIn = () => {
       </div>
       <div className="form-section">
         <h2>Registre-se no<br></br><span>HealthSync</span></h2>
-        <form>
+        <form onSubmit={(e) =>{
+          e.preventDefault();
+          login();
+          console.log(isLogged.toString());
+          navigate('/');
+        }}>
           <input type="email" placeholder="Email" required />
           <input type="password" placeholder="Senha" required />
           <button type="submit">Entrar</button>
         </form>
-        <p>Ainda não tem uma conta? <a href="#">Registre-se</a></p>
+        <p>Não possui conta? <Link to="/SignUp">Registre-se</Link></p>
       </div>
     </div>
+
   )
 }
 

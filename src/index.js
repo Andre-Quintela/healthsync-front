@@ -3,20 +3,25 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import SignUp from './pages/signUp/SignUp';
-import TestPage from './pages/TestPage/Test';
 import reportWebVitals from './reportWebVitals';
 import SignIn from './pages/signIn/SignIn';
+import Home from './pages/Home/Home';
+import { AuthProvider } from './AuthContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <AuthProvider>
     <Router>
       <Routes>
-          <Route path="/" element={<SignUp/>} />
-          <Route path="/Test" element={<SignIn />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/SignIn" element={<SignIn />} />
       </Routes>
-  </Router>
+    </Router>
+  </AuthProvider>
+  
   </React.StrictMode>
 );
 
