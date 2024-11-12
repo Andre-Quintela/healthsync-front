@@ -1,17 +1,25 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Crie o contexto
+// Cria o contexto
 const AuthContext = createContext();
 
-// Crie o provider
+// Cria o provider
 export const AuthProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const login = () => setIsLogged(true);
-  const logout = () => setIsLogged(false);
+  const login = (userData) => {
+    setIsLogged(true);
+    setUser(userData);  // Salva os dados do usuário (ex: { id: '123', name: 'John' })
+  };
+
+  const logout = () => {
+    setIsLogged(false);
+    setUser(null);  // Limpa os dados do usuário ao sair
+  };
 
   return (
-    <AuthContext.Provider value={{ isLogged, login, logout }}>
+    <AuthContext.Provider value={{ isLogged, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

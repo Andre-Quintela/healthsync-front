@@ -52,7 +52,7 @@ const SignUp = () => {
                     <input type="text" placeholder="Sobrenome" required />
                     <input type="date" placeholder="Data de nascimento" required />
                     <input type="email" placeholder="Email" required />
-                    <input type="tel" placeholder="Número de telefone" required />
+                    <input type="password" placeholder="Senha" required />
                     <input type="text" placeholder="Endereço" required />
                     <div className="checkbox">
                         <input type="checkbox" id="terms" required />

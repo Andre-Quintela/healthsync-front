@@ -4,6 +4,7 @@ import DeskAlt from '../../assets/Desk_alt_light.svg';
 import ChartAlt from '../../assets/Chart_alt.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
+import UserModel from '../../Models/User/UserModel';
 
 const SignIn = () => {
   const { isLogged, login, logout } = useAuth();
@@ -37,7 +38,7 @@ const SignIn = () => {
         <h2>Registre-se no<br></br><span>HealthSync</span></h2>
         <form onSubmit={(e) =>{
           e.preventDefault();
-          login();
+          login(new UserModel(999, 'John', 'Doe', '1990-01-01', 'joão.silva@gmail.com', 'senha123', 'Rua 03'));
           console.log(isLogged.toString());
           navigate('/');
         }}>
@@ -48,7 +49,6 @@ const SignIn = () => {
         <p>Não possui conta? <Link to="/SignUp">Registre-se</Link></p>
       </div>
     </div>
-
   )
 }
 
