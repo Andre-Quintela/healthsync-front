@@ -82,6 +82,8 @@ form input[type="date"],
 form input[type="email"],
 form input[type="password"],
 form input[type="number"],
+form input[type="time"],
+select,
 form input[type="tel"] {
     margin-bottom: 15px;
     padding: 10px;

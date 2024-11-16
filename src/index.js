@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import SignIn from './pages/signIn/SignIn';
 import Home from './pages/Home/Home';
 import { AuthProvider } from './AuthContext';
+import MarcarConsultas from './pages/MarcarConsultas/MarcarConsultas';
+import ConsultasAgendadas from './pages/ConsultasAgendadas/ConsultasAgendadas';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +20,8 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/MarcarConsultas" element={<MarcarConsultas />} />
+        <Route path="ConsultasAgendadas" element={<ConsultasAgendadas />} />
       </Routes>
     </Router>
   </AuthProvider>

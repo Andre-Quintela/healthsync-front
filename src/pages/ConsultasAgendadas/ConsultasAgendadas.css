@@ -1,0 +1,50 @@
+.ca-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #0a6cc9;
+}
+
+.ca-title {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.ca-list {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ca-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ca-info h3 {
+    font-size: 20px;
+    color: #333333;
+}
+
+.ca-info p {
+    font-size: 14px;
+    color: #555555;
+}
+
+.ca-no-appointments {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 50px;
+}

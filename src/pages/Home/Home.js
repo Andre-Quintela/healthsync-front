@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import AgendarConsulta from '../../assets/AgendarConsulta.svg';
 import VerificarConsultas from '../../assets/VerificarConsultas.svg';
 import Exames from '../../assets/Exames.svg';
+import NotLoggedModal from '../../components/notLoggedModal/NotLoggedModal';
 
 const Home = () => {
   const { isLogged, user } = useAuth();  
@@ -15,12 +16,12 @@ const Home = () => {
       <Header />
       <div className="home-container">
         {isLogged ? (
-          <div>
+          <div className='home-container-logged'>
+            <h1>Bem-vindo ao <span>HealthSync</span>, {user.name}!</h1>   
             <div className="home-cards">
-
               <div className="card" onClick={(e) =>{
                 e.preventDefault();
-                navigate('/Consultas');
+                navigate('/MarcarConsultas');
               }}>
                 <h3>Marcar consultas</h3>
                 <img src={AgendarConsulta} alt='Imagem de marcar consultas'/>
@@ -47,14 +48,7 @@ const Home = () => {
             </div>
           </div>
         ) : (
-          <div className='notLoggedModal'>
-            <h1>Bem-vindo ao <span>HealthSync</span>!</h1>
-            <p>Opss, parece que você ainda não está logado. Clique no botão abaixo para efetuar o login</p>
-            <button onClick={(e) => {
-              e.preventDefault();
-              navigate('/SignIn');
-            }}>Entrar</button>
-          </div>
+          <NotLoggedModal />
         )}
         </div>
     </div>
