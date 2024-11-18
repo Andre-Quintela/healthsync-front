@@ -1,7 +1,7 @@
 class UserModel {
-    constructor(id, name, lastName, bornDate, email, password, address) {
+    constructor(id, firstName, lastName, bornDate, email, password, address) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.bornDate = bornDate;
         this.email = email;
@@ -12,13 +12,13 @@ class UserModel {
     getUserInfo() {
         return {
             id: this.id,
-            name: this.name,
-            email: this.email
+            firstName: this.firstName,
+            email: this.email,
         };
     }
 
-    updateUserInfo(name, email) {
-        this.name = name;
+    updateUserInfo(firstName, email) {
+        this.firstName = firstName;
         this.email = email;
     }
 

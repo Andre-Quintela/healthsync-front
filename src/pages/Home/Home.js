@@ -17,7 +17,7 @@ const Home = () => {
       <div className="home-container">
         {isLogged ? (
           <div className='home-container-logged'>
-            <h1>Bem-vindo ao <span>HealthSync</span>, {user.name}!</h1>   
+            <h1>Bem-vindo ao <span>HealthSync</span>, {user.firstName}!</h1>   
             <div className="home-cards">
               <div className="card" onClick={(e) =>{
                 e.preventDefault();
