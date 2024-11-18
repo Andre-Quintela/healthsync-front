@@ -1,33 +1,51 @@
-import './ConsultasAgendadas.css';
+import React, { useEffect, useState } from "react";
+import "./ConsultasAgendadas.css";
+import Header from "../../components/header/Header"
+
 
 const ConsultasAgendadas = () => {
-  const appointments = [
-    {
-      patient: "João Silva",
-      doctor: "Dr. Silva",
-      date: "2024-11-20",
-      time: "14:00",
-    },
-    {
-      patient: "Maria Oliveira",
-      doctor: "Dra. Souza",
-      date: "2024-11-22",
-      time: "10:30",
-    },
-    {
-      patient: "Carlos Almeida",
-      doctor: "Dr. Oliveira",
-      date: "2024-11-23",
-      time: "16:00",
-    },
-  ];
+  const [appointments, setAppointments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Função para buscar os dados da API
+    const fetchAppointments = async () => {
+      try {
+        const response = await fetch("https://localhost:7203/api/Consultas");
+        if (!response.ok) {
+          throw new Error(`Erro na API: ${response.status}`);
+        }
+        const data = await response.json();
+        // Processando os dados antes de salvar no estado
+        const formattedAppointments = data.map((item) => ({
+          patient: item.userName,
+          doctor: item.medicoNome,
+          date: new Date(item.data).toLocaleDateString("pt-BR"),
+          time: item.hora,
+        }));
+        setAppointments(formattedAppointments);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchAppointments();
+  }, []);
 
   return (
     <div className="ca-container">
-      <h1 className='.ca-title'>Consultas Marcadas</h1>
-      <div className="ca-list">
-        {appointments.length > 0 ? (
-          appointments.map((appointment, index) => (
+      <Header/>
+      <h1 className="ca-title">Consultas Marcadas</h1>
+      {isLoading ? (
+        <p className="ca-loading">Carregando...</p>
+      ) : error ? (
+        <p className="ca-error">Erro: {error}</p>
+      ) : appointments.length > 0 ? (
+        <div className="ca-list">
+          {appointments.map((appointment, index) => (
             <div key={index} className="ca-card">
               <div className="ca-info">
                 <h3>{appointment.patient}</h3>
@@ -36,11 +54,11 @@ const ConsultasAgendadas = () => {
                 <p><strong>Hora:</strong> {appointment.time}</p>
               </div>
             </div>
-          ))
-        ) : (
-          <p className="ca-no-appointments">Nenhuma consulta marcada.</p>
-        )}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <p className="ca-no-appointments">Nenhuma consulta marcada.</p>
+      )}
     </div>
   );
 };

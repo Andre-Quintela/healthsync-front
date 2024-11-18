@@ -4,6 +4,8 @@ import NotLoggedModal from '../../components/notLoggedModal/NotLoggedModal';
 import './MarcarConsultas.css';
 import ConsultaModel from '../../Models/Consulta/ConsultaModel';
 import { useNavigate } from 'react-router-dom';
+import Header from "../../components/header/Header"
+
 
 
 const MarcarConsultas = () => {
@@ -84,6 +86,7 @@ const MarcarConsultas = () => {
 
   return (
     <div className="mc-container">
+      <Header />
       {isLogged ? (
         <div>
           <h1 className="mc-H1">Marcar Consulta</h1>
